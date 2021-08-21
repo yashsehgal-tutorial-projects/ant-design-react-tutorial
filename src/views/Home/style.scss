@@ -10,18 +10,6 @@ div.home-view {
     width: fit-content;
     div.recent-job-opening {
       width: 300px;
-      @media screen and (max-width: 1000px) {
-        max-width: 700px;
-        text-align: center;
-        margin: auto;
-        display: block;
-      }
-      @media screen and (max-width: 700px) {
-        max-width: 400px;
-        text-align: center;
-        margin: auto;
-        display: block;
-      }
     }
   }
 }
