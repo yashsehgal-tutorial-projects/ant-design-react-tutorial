@@ -1,0 +1,30 @@
+body {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 3.6em;
+  margin-bottom: auto;
+  max-width: 1400px;
+}
+
+@media screen and (max-width: 1400px) {
+  body {
+    max-width: 1000px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    max-width: 700px;
+    text-align: center;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    max-width: 400px;
+    text-align: center;
+    margin: auto;
+  }
+}
+/*# sourceMappingURL=main.css.map */

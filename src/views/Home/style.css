@@ -1,0 +1,40 @@
+div.home-view > div.job-search-input-wrapper {
+  width: 420px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 12px;
+}
+
+div.home-view div.recent-job-opening-wrapper {
+  margin-top: 50px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+div.home-view div.recent-job-opening-wrapper div.recent-job-opening {
+  width: 300px;
+}
+
+@media screen and (max-width: 1000px) {
+  div.home-view div.recent-job-opening-wrapper div.recent-job-opening {
+    max-width: 700px;
+    text-align: center;
+    margin: auto;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  div.home-view div.recent-job-opening-wrapper div.recent-job-opening {
+    max-width: 400px;
+    text-align: center;
+    margin: auto;
+    display: block;
+  }
+}
+/*# sourceMappingURL=style.css.map */
