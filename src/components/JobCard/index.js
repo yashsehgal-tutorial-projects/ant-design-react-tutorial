@@ -1,12 +1,36 @@
 import React, { useState } from 'react';
 import ReactModal from 'react-modal';
-import { Card, Tag, Rate, Button } from 'antd';
+import { Card, Tag, Rate, Button, notification } from 'antd';
+import { DownOutlined, SmileOutlined } from '@ant-design/icons';
+
+const openNotification = () => {
+  notification.open({
+    message: 'Job Report',
+    description:
+      'This recent job update has been reported from your account.',
+    icon: <SmileOutlined style={{ color: '#108ee9' }} />,
+  });
+};
 
 export default function JobCard(JobDetails) {
   const [jobModalVisibilityState, setJobModalVisibilityState] = useState(false);
+  const [reportRecentJobSuggestionsDropdownState, setReportJobSuggestionsDropdownState] = useState('none');
   return (
-    <Card className="job-card">
-      <h3>{ JobDetails.JobTitle }</h3>
+    <Card className="job-card" style={{
+      transition: 'all 0.2s ease-in-out'
+    }}>
+      <div className="job-card-header" 
+        style={{
+          display: 'flex',
+          alignItems: 'center'
+        }}
+        onClick={() => setReportJobSuggestionsDropdownState('block')}
+      >
+        <h3>{ JobDetails.JobTitle }</h3>
+        <DownOutlined style={{
+          marginLeft: 'auto'
+        }} />
+      </div>
       <p>{ JobDetails.JobDescription }</p>
       <div className="job-card__required-skills-wrapper">
         {JobDetails.RequiredSkills.map((skillTag) => {
@@ -32,23 +56,23 @@ export default function JobCard(JobDetails) {
         })}
       </div>
       <div style={{
-        display: 'grid',
         marginTop: '1.2em'
       }}>
-        <Rate style={{
-          marginLeft: 'auto',
-          marginBottom: '1em'
-        }} />
         <Button type="primary"
           onClick={() => setJobModalVisibilityState(true)}
         >
           Apply now
         </Button>
+        <Rate />
       </div>
+      <Button onClick={openNotification} style={{ display: `${reportRecentJobSuggestionsDropdownState}` }}>
+        Report job update
+      </Button>
       <ReactModal isOpen={jobModalVisibilityState} onRequestClose={() => setJobModalVisibilityState(false)} style={{
         content: {
-          width: 'fit-content',
-          height: '350px'
+          width: '900px',
+          height: '350px',
+          margin: 'auto'
         }
       }}>
         <h1>{ JobDetails.JobTitle }</h1>
@@ -82,14 +106,18 @@ export default function JobCard(JobDetails) {
         <div>
           <Tag>Minimum { JobDetails.MinimumPay }</Tag> to <Tag>Maximum { JobDetails.MaximumPay }</Tag>
         </div>
-        <Button type="danger" onClick={() => setJobModalVisibilityState(false)} style={{
-          position: 'fixed',
-          marginTop: '20px',
-          display: 'grid'
-        }}
-        >
-          Close
-        </Button>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          marginTop: '20px'
+        }}>
+          <Button type="danger" onClick={() => setJobModalVisibilityState(false)} style={{
+          }}
+          >
+            Close
+          </Button>
+          <Rate style={{ marginLeft: 'auto' }}/>
+        </div>
       </ReactModal>
     </Card>
   )

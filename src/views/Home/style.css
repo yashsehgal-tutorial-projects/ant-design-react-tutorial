@@ -1,5 +1,4 @@
 div.home-view > div.job-search-input-wrapper {
-  width: 420px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18,23 +17,5 @@ div.home-view div.recent-job-opening-wrapper {
 
 div.home-view div.recent-job-opening-wrapper div.recent-job-opening {
   width: 300px;
-}
-
-@media screen and (max-width: 1000px) {
-  div.home-view div.recent-job-opening-wrapper div.recent-job-opening {
-    max-width: 700px;
-    text-align: center;
-    margin: auto;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  div.home-view div.recent-job-opening-wrapper div.recent-job-opening {
-    max-width: 400px;
-    text-align: center;
-    margin: auto;
-    display: block;
-  }
 }
 /*# sourceMappingURL=style.css.map */
